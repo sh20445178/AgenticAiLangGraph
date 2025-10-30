@@ -1,0 +1,62 @@
+# Core LangGraph and LangChain dependencies
+langgraph>=0.2.16
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+
+# Google Gemini LLM
+langchain-google-genai>=1.0.0
+google-generativeai>=0.7.0
+
+# AWS SDK
+boto3>=1.34.0
+botocore>=1.34.0
+aioboto3>=12.0.0
+
+# Azure SDK
+azure-identity>=1.15.0
+azure-keyvault-secrets>=4.7.0
+azure-storage-blob>=12.19.0
+azure-cosmos>=4.5.0
+azure-sql-database>=1.0.0
+azure-functions>=1.18.0
+azure-servicebus>=7.11.0
+
+# Database drivers
+psycopg2-binary>=2.9.0
+pymongo>=4.6.0
+redis>=5.0.0
+
+# Web framework and API
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+
+# Async support
+aiohttp>=3.9.0
+asyncio>=3.4.3
+
+# Data processing
+pandas>=2.2.0
+numpy>=1.26.0
+json-schema>=4.21.0
+
+# Logging and monitoring
+structlog>=24.1.0
+python-json-logger>=2.0.7
+
+# Environment and configuration
+python-dotenv>=1.0.0
+toml>=0.10.2
+pyyaml>=6.0.1
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-mock>=3.12.0
+
+# Development tools
+black>=24.2.0
+isort>=5.13.0
+mypy>=1.8.0
