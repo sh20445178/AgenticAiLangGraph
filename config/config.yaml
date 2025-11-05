@@ -1,0 +1,137 @@
+# Cloud-Agnostic Agent Configuration
+# This file contains the main configuration for the LangGraph agent
+
+# Google Gemini Configuration
+gemini:
+  api_key: ${GEMINI_API_KEY}
+  model_name: "gemini-1.5-pro"
+  temperature: 0.7
+  max_tokens: 8192
+  top_p: 0.8
+  top_k: 40
+  retry_attempts: 3
+  retry_delay: 1.0
+
+# AWS Configuration
+aws:
+  region: ${AWS_REGION:us-east-1}
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+  use_default_credentials: true
+
+# Azure Configuration
+azure:
+  subscription_id: ${AZURE_SUBSCRIPTION_ID}
+  tenant_id: ${AZURE_TENANT_ID}
+  client_id: ${AZURE_CLIENT_ID}
+  client_secret: ${AZURE_CLIENT_SECRET}
+  location: ${AZURE_LOCATION:eastus}
+  use_default_credentials: true
+
+# Agent Configuration
+agent:
+  name: "CloudAgnosticAgent"
+  version: "1.0.0"
+  description: "AI agent for cloud-agnostic architecture recommendations"
+  max_concurrent_requests: 10
+  request_timeout: 300  # seconds
+  
+  # Learning configuration
+  learning:
+    enabled: true
+    storage_path: "learning_data.json"
+    feedback_retention_days: 365
+    min_feedback_count: 5  # Minimum feedback required for insights
+    confidence_threshold: 0.7
+
+# Template Generation
+templates:
+  react:
+    default_ui_framework: "material-ui"
+    default_testing_framework: "jest"
+    typescript_enabled: true
+    pwa_enabled: true
+  
+  java:
+    default_java_version: "17"
+    default_spring_boot_version: "3.2.0"
+    default_database: "postgresql"
+    security_enabled: true
+    monitoring_enabled: true
+    cache_enabled: true
+
+# Logging Configuration
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "agent.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:3001"
+  rate_limit:
+    requests_per_minute: 60
+  
+# Database Configuration (for agent metadata)
+database:
+  type: "sqlite"
+  path: "agent_data.db"
+  # For production, use PostgreSQL or similar
+  # url: "postgresql://user:password@localhost:5432/agent_db"
+
+# Cache Configuration
+cache:
+  type: "memory"  # or "redis"
+  ttl: 3600  # seconds
+  max_size: 1000  # items
+  
+  # Redis configuration (if type is "redis")
+  redis:
+    host: "localhost"
+    port: 6379
+    password: ""
+    db: 0
+
+# Security Configuration
+security:
+  enable_auth: false  # Set to true for production
+  jwt_secret: ${JWT_SECRET}
+  token_expiry: 3600  # seconds
+  
+  # API key authentication
+  api_key_auth:
+    enabled: false
+    header_name: "X-API-Key"
+    valid_keys: []
+
+# Monitoring and Metrics
+monitoring:
+  enabled: true
+  metrics_endpoint: "/metrics"
+  health_endpoint: "/health"
+  
+  # Export metrics to external systems
+  prometheus:
+    enabled: false
+    port: 9090
+
+# Feature Flags
+features:
+  enable_caching: true
+  enable_learning: true
+  enable_cost_estimation: true
+  enable_security_analysis: true
+  enable_performance_optimization: true
+
+# Development Configuration
+development:
+  debug: false
+  hot_reload: false
+  mock_cloud_apis: false
+  verbose_logging: false
